@@ -1,0 +1,39 @@
+a 
+{
+    color: darkslategray;
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+#content
+{
+    display: flex;
+    margin: 20;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+}
+
+#photo
+{
+    float: left;
+}
+
+#description
+{
+    margin-left: 40;
+    margin-right: 40;
+}
+
+#links
+{
+    font-size: smaller;
+}
+
+.subtitle 
+{
+    font-weight: bolder;
+}
