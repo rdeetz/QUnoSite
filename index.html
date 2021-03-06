@@ -13,7 +13,100 @@
                     Welcome to QUno, an Uno-like card game.
                 </h1>
                 <p>
-                    Here is the story of this game...
+                    A long time ago, in a galaxy not far away, I (mostly) taught myself to program while in college. 
+                    I didn't care much for algorithms and data structures, but once I learned that I could make a 
+                    window appear on the screen and have it do stuff like the other programs I was using, I was hooked. 
+                    My sister loved to play Uno, and I missed playing with her when I went away to college. I also knew 
+                    that when I started my adult life I would likely not be in my hometown where she lived, so there wouldn't 
+                    be as many chances to play in the future. So, I decided to use my newfound programming skills to make 
+                    a computer game so she could play Uno even if I wasn't there.
+                </p>
+                <p>
+                    Version 1 of this game was built circa 1996 and it ran on Microsoft Windows 3.1. I used 
+                    Microsoft Visual C++ 1.52c. It sort of worked, but not really, because I didn't know what I was doing 
+                    and the game would leak GDI resources until the system was exhausted. Programming for 16-bit 
+                    operating systems was unforgiving; I had to create device contexts uphill both ways. I also had 
+                    to target Windows 3.1 because I used the game as the final project in a C++ class I took, and I 
+                    was the only student who wanted to build a graphical program, and the instructor wasn't quite sure 
+                    what do (everyone else was using gcc and Unix) so he let submit it because he had on Windows 3.1 
+                    computer from the lab in his office.
+                </p>
+                <p>
+                    Version 2 of this followed shortly after, circa 1997, and this version was just for me, so I targeted 
+                    Microsoft Windows 95 and I used Microsoft Visual C++ 2.0. It was designed in the same style as the 16-bit version 
+                    but updated for 32-bit and taking advantage of some things I learned along the way. This one worked much 
+                    better! You could play a few games, but it still crashed every now and then. I worked on it nights and weekends   
+                    during my summer internship; I think my roommate Dave wanted me to be more social that summer, and 
+                    maybe I would have been if Dave was more fun.
+                </p>
+                <p>
+                    Version 3 happened circa 1999. I was now a professional programmer, and my employer sent me to training 
+                    to learn COM and ATL, so of course I used my new knowledge to rearchitect this game. I used Microsoft Visual C++ 6.0 
+                    and targeted the truly 32-bit operating systems of the time, such as Microsoft Windows 2000. This version was 
+                    the first one to separate the game "engine" (essentially a data model and some game logic) from the user interface, and that 
+                    is a pattern that continues to this day. The engine worked rather well--I implemented a Visual Basic test harness 
+                    to drive the engine, and a simple HTML-based UI (remember when it was totally cool and no one saw any potential 
+                    problems with calling native code from scripts in a web page?), but I never finished the UI I planned. This too 
+                    would be a pattern that would continue for some time.
+                </p>
+                <p>
+                    The code for the above has been published at [QUnoArchives](https://github.com/rdeetz/QUnoArchives). 
+                </p>
+                <p>
+                    Fast forward <em>n</em> years. .NET now rules the Microsoft ecosystem. Windows Vista is a punchline, 
+                    but with it comes Windows Presentation Foundation, which is a remarkably powerful and flexible user interface 
+                    framework, that leapfrogs several generations of Windows UI technologies such as Win32, MFC, and Windows Forms. 
+                    SourceForge is pioneering open-source development, and Microsoft copycats with CodePlex (RIP). The time has come 
+                    for QUno to make it off my hard drive (an actual spinning metal disk, remember those?) and onto the cloud. 
+                    (Was it <em>The Cloud</em> then? I can't remember.) So I start to build a .NET-based version of QUno, using C# 
+                    with a user interface built using [Windows Presentation Foundation](https://github.com/dotnet/wpf). This is version 4.
+                </p>
+                <p>
+                    Version 4 is a saga that lasts more than 10 years but less than 15. I build a solid game engine, which is 
+                    still mostly in use today. On top that engine, I build a console application as a test harness; this is the first time you 
+                    can QUno from a command prompt! (This console application will play a key role in the rebirth of QUno many years later.) 
+                    I also build a UI based on WPF, and experiment with unit tests and XAML and M-V-VM and Expression Blend and many 
+                    other fads of the day. At some point I get it sort of working with this new architecture, but I lose interest.
+                </p>
+                <p>
+                    Until: Microsoft Build 2012, when Microsoft Windows 8 is introduced. This is the first version of Windows that 
+                    includes the Windows Runtime, and the promise of building Windows applications to run on desktops and laptops and 
+                    phones and tablets is exciting. And part of this power comes from XAML, which is now built into the Windows Runtime, 
+                    and something I have some experience with. So I start refreshing the Windows Presentation Foundation version of 
+                    QUno to use the modern Windows Runtime and target Windows 8 as well as Windows Phone (RIP). I get a good start, but 
+                    over time I realize that the XAML platform in the Windows Runtime (and on the Phone) <em>isn't exactly the same</em> 
+                    as the XAML I am used in WPF, so I hit many frustrations, and I lose interest.
+                </p>
+                <p>
+                    With the death of CodePlex, I move the QUno code to "Visual Studio Online" which then turns into "Azure DevOps". 
+                    Version 4 of QUno, including the projects for Windows Phone and Windows 8 "Metro", is still frozen in Carbonite there.
+                </p>
+                <p>
+                    Fast forward a few more years, and now .NET is a cross-platform framework, in the form of .NET Core. It can 
+                    run on Macs! It can run on Linux! (I know I know Mono has been around forever "running .NET on Linux" but come on...) 
+                    So I decide to see how hard it would be to refresh the QUno command line application and class library for 
+                    .NET Core so I can run it on my Mac. Turns out not hard! Like, at all. Bascially just a recompile. Oh and F# is 
+                    available you say? Oh and now we have moved on from the disaster of Windows 8 and Windows 10 is actually pretty good again?
+                    Maybe my interest isn't dead just yet.
+                </p>
+                <p>
+                    Which brings us to version 5. 
+                </p>
+                <ul>
+                    <li>The [game engine](https://github.com/rdeetz/QUnoEngine) has been reimplemented for .NET 5.</li>
+                    <li>There are two [desktop applications](https://github.com/rdeetz/QUnoDesktop), for Windows Forms and Windows Presentation Foundation, using the open source versions of those frameworks.</li>
+                    <li>There is a [new implementation](https://github.com/rdeetz/QUnoUniversal) for Windows 10 and the Universal Windows Platform.</li>
+                    <li><em>(Coming soon.)</em>The journey of QUno will continue with [new native implementations](https://github.com/rdeetz/QUnoNative).</li>
+                </ul>
+                <p>
+                    Aside from professional work, I had never published an app to any "app store" so I decided it was time, 
+                    and I am please to say that, more than 20 years after the first line code was written, 
+                    [QUno is available in the Microsoft Store](https://www.microsoft.com/store/productId/9P56TFX6F33W).
+                </p>
+                <p>
+                    I'm not concerned if anyone every downloads it, or what the rating is (but if you do choose to rate it, 
+                    please be kind, I tried to be straight with what you are getting). I've worked on this most of my adult life 
+                    to keep my mind sharp and to remember my sister.
                 </p>
                 <p>
                     For documentation and support, visit the <a href="https://github.com/rdeetz/QUnoUniversal">GitHub repository</a> for this project.
